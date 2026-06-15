@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-labelledby="title desc">
+  <title id="title">Finished electrical trim-out</title>
+  <desc id="desc">Finished interior wall with outlets, switches, and warm ceiling lights</desc>
+  <rect width="760" height="470" fill="#e8ddca"/>
+  <rect x="72" y="70" width="616" height="315" rx="20" fill="#f7f1e7" stroke="#344236" stroke-width="10"/>
+  <path d="M72 173 H688" stroke="#d9c8ad" stroke-width="7"/>
+  <path d="M72 285 H688" stroke="#d9c8ad" stroke-width="7"/>
+  <g fill="#fffdf8" stroke="#344236" stroke-width="7">
+    <rect x="174" y="236" width="50" height="70" rx="9"/>
+    <rect x="280" y="236" width="50" height="70" rx="9"/>
+    <rect x="534" y="224" width="60" height="86" rx="10"/>
+  </g>
+  <g stroke="#a56543" stroke-width="5" stroke-linecap="round">
+    <path d="M187 258 h23"/>
+    <path d="M187 283 h23"/>
+    <path d="M293 258 h23"/>
+    <path d="M293 283 h23"/>
+    <path d="M551 252 h26"/>
+    <path d="M551 280 h26"/>
+  </g>
+  <g>
+    <path d="M210 96 v62" stroke="#344236" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="210" cy="171" r="28" fill="#a56543" opacity="0.7"/>
+    <path d="M550 96 v62" stroke="#344236" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="550" cy="171" r="28" fill="#a56543" opacity="0.7"/>
+  </g>
+  <path d="M122 356 H638" stroke="#6e7751" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+  <text x="380" y="438" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#344236" letter-spacing="2">FINISH AFTER SHEETROCK</text>
+</svg>

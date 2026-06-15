@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-labelledby="title desc">
+  <title id="title">Open wall wiring</title>
+  <desc id="desc">Open wall studs with electrical wiring routed through framing</desc>
+  <rect width="760" height="470" fill="#efe4d2"/>
+  <rect x="70" y="54" width="620" height="348" rx="18" fill="#f7f1e7" stroke="#344236" stroke-width="10"/>
+  <g stroke="#344236" stroke-width="13" stroke-linecap="round" opacity="0.72">
+    <path d="M150 58 V398"/>
+    <path d="M265 58 V398"/>
+    <path d="M380 58 V398"/>
+    <path d="M495 58 V398"/>
+    <path d="M610 58 V398"/>
+    <path d="M76 155 H684"/>
+    <path d="M76 302 H684"/>
+  </g>
+  <g fill="#fffdf8" stroke="#344236" stroke-width="7">
+    <rect x="240" y="218" width="52" height="66" rx="8"/>
+    <rect x="470" y="210" width="52" height="66" rx="8"/>
+  </g>
+  <path d="M112 237 C202 194 282 286 376 238 C470 190 554 282 648 234" fill="none" stroke="#a56543" stroke-width="10" stroke-linecap="round"/>
+  <path d="M112 260 C214 308 292 206 386 255 C480 304 554 214 648 260" fill="none" stroke="#6e7751" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <text x="380" y="438" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#344236" letter-spacing="2">ROUGH-IN WIRING</text>
+</svg>

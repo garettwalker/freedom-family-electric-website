@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Mountain inspired brand mark</title>
+  <desc id="desc">Muted mountain line mark inspired by Pilot Mountain and Hanging Rock with a subtle cross</desc>
+  <rect width="720" height="520" rx="36" fill="#f7f1e7"/>
+  <circle cx="565" cy="128" r="58" fill="#e8ddca"/>
+  <path d="M90 332 L206 214 L278 282 L370 150 L630 332" fill="none" stroke="#344236" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M375 118 v210 M325 190 h100" stroke="#a56543" stroke-width="13" stroke-linecap="round"/>
+  <path d="M98 377 H628" stroke="#6e7751" stroke-width="14" stroke-linecap="round"/>
+  <path d="M140 415 C240 386 316 456 420 418 C486 394 548 399 610 425" fill="none" stroke="#a8ae91" stroke-width="9" stroke-linecap="round"/>
+  <text x="360" y="470" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#243027">Light on the Mountain</text>
+</svg>

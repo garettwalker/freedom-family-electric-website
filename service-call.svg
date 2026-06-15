@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-labelledby="title desc">
+  <title id="title">Electrical service panel</title>
+  <desc id="desc">Residential electrical panel and service call illustration</desc>
+  <rect width="760" height="470" fill="#efe4d2"/>
+  <rect x="218" y="56" width="324" height="334" rx="22" fill="#f7f1e7" stroke="#344236" stroke-width="11"/>
+  <rect x="256" y="96" width="248" height="56" rx="9" fill="#344236" opacity="0.88"/>
+  <g fill="#6e7751">
+    <rect x="262" y="188" width="86" height="30" rx="7"/>
+    <rect x="412" y="188" width="86" height="30" rx="7"/>
+    <rect x="262" y="236" width="86" height="30" rx="7"/>
+    <rect x="412" y="236" width="86" height="30" rx="7"/>
+    <rect x="262" y="284" width="86" height="30" rx="7"/>
+    <rect x="412" y="284" width="86" height="30" rx="7"/>
+  </g>
+  <path d="M380 152 v204" stroke="#344236" stroke-width="7" stroke-linecap="round" opacity="0.52"/>
+  <path d="M150 330 C260 278 295 386 383 326 C472 265 524 360 610 315" fill="none" stroke="#a56543" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="590" cy="118" r="44" fill="#a56543" opacity="0.22"/>
+  <path d="M590 90 v56 M562 118 h56" stroke="#a56543" stroke-width="8" stroke-linecap="round"/>
+  <text x="380" y="438" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#344236" letter-spacing="2">SERVICE CALLS</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="title desc">
+  <title id="title">Family photo placeholder</title>
+  <desc id="desc">Placeholder image area for a future owner family photo</desc>
+  <rect width="900" height="700" rx="28" fill="#e8ddca"/>
+  <circle cx="698" cy="128" r="62" fill="#f7f1e7" opacity="0.86"/>
+  <path d="M0 492 C122 454 230 512 348 474 C486 430 560 450 900 392 V700 H0 Z" fill="#a8ae91" opacity="0.52"/>
+  <path d="M112 420 L264 272 L356 350 L458 210 L786 420" fill="none" stroke="#344236" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M462 172 v214 M408 250 h108" stroke="#a56543" stroke-width="12" stroke-linecap="round"/>
+  <rect x="170" y="462" width="560" height="104" rx="24" fill="#fffdf8" opacity="0.92"/>
+  <text x="450" y="508" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" fill="#243027">Family photo placeholder</text>
+  <text x="450" y="545" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2" fill="#6e7751">REPLACE WITH OWNER FAMILY PHOTO</text>
+</svg>
