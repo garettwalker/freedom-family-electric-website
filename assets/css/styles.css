@@ -267,7 +267,7 @@ select {
 h1,
 h2,
 h3 {
-  color: var(--deep-pine);
+  color: var(--pine);
   line-height: 1.05;
 }
 
