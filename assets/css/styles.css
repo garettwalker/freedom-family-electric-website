@@ -626,6 +626,12 @@ h3 {
   object-fit: cover;
 }
 
+@media (max-width: 680px) {
+  .project-visual {
+    aspect-ratio: 16 / 10;
+  }
+}
+
 .values-mark {
   padding: 34px;
   border-radius: var(--radius-lg);
@@ -735,8 +741,15 @@ h3 {
 .about-photo img {
   width: 100%;
   height: auto;
+  aspect-ratio: 2100 / 1400;
   border-radius: 22px;
   object-fit: cover;
+}
+
+@media (max-width: 680px) {
+  .about-photo img {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .values-list {
