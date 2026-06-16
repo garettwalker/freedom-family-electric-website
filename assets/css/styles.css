@@ -267,7 +267,7 @@ select {
 h1,
 h2,
 h3 {
-  color: var(--sage);
+  color: var(--moss);
   line-height: 1.05;
 }
 
