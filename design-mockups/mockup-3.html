@@ -1,0 +1,284 @@
+<!doctype html>
+<title>Clean Lines — FFE concept</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1c18;
+    --dim: #6b6e66;
+    --pine: #344236;
+    --pine-ink: #f4f1e8;
+    --line: #e5e3dc;
+    --font: "Schibsted Grotesk", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.6; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-weight: 600; line-height: 1.06; letter-spacing: -.025em; text-wrap: balance; }
+  .wrap { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
+  .concept-tag {
+    position: fixed; right: 16px; bottom: 16px; z-index: 50;
+    font-size: 12px; color: var(--dim); background: rgba(255,255,255,.9);
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; pointer-events: none;
+  }
+
+  header { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .header-row { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 700; font-size: 16.5px; letter-spacing: -.01em; }
+  .brand b { color: var(--pine); }
+  nav { display: flex; gap: 30px; align-items: center; font-size: 15px; font-weight: 500; }
+  nav a.quiet { color: var(--dim); }
+  nav a.quiet:hover { color: var(--ink); }
+  .cta { background: var(--pine); color: var(--pine-ink); padding: 10px 20px; font-weight: 600; font-size: 14.5px; transition: opacity .2s ease; }
+  .cta:hover { opacity: .88; }
+
+  /* hero: type slab over full-bleed photo */
+  .hero-head { padding: clamp(56px, 9vw, 120px) 0 clamp(36px, 5vw, 64px); display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+  .hero-head h1 { font-size: clamp(42px, 6.8vw, 96px); max-width: 12ch; }
+  .hero-head .side { max-width: 40ch; color: var(--dim); font-size: 17px; padding-bottom: 10px; }
+  .hero-head .side .btns { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 13px 24px; font-weight: 600; font-size: 15px; border: 1px solid var(--ink); transition: background .2s ease, color .2s ease; }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: var(--pine); border-color: var(--pine); }
+  .btn-line:hover { background: var(--ink); color: #fff; }
+  .hero-img { width: 100%; height: min(66vh, 640px); object-fit: cover; }
+  .hero-meta { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--dim); font-size: 13.5px; font-weight: 500; }
+
+  /* gallery wall */
+  .wall { padding: clamp(64px, 8vw, 110px) 0 0; }
+  .wall-head { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
+  .wall-head h2 { font-size: clamp(30px, 3.6vw, 48px); }
+  .wall-head p { color: var(--dim); max-width: 42ch; }
+  .wall-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .cell { grid-column: span 4; }
+  .cell.tall { grid-column: span 4; }
+  .cell img { width: 100%; object-fit: cover; }
+  .cell h3 { font-size: 17px; font-weight: 600; margin-top: 12px; letter-spacing: -.01em; }
+  .cell p { font-size: 14px; color: var(--dim); }
+  .cell.w6 { grid-column: span 6; }
+  .cell.w6 img { aspect-ratio: 4/3; }
+  .cell.tall img { aspect-ratio: 3/4; }
+  .cell.full { grid-column: span 12; }
+  .cell.full img { aspect-ratio: 21/9; height: auto; }
+  .cell.full h3 { max-width: 60ch; }
+
+  /* services: plain columns, hairlines */
+  .services { padding: clamp(80px, 10vw, 140px) 0; }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .svc { padding: 34px 28px 44px 0; border-bottom: 1px solid var(--line); }
+  .svc:nth-child(3n+2), .svc:nth-child(3n) { border-left: 1px solid var(--line); padding-left: 28px; }
+  .svc h3 { font-size: 19px; margin-bottom: 10px; }
+  .svc p { font-size: 14.5px; color: var(--dim); }
+  .svc .kick { font-size: 12.5px; font-weight: 600; color: var(--pine); display: block; margin-bottom: 14px; }
+
+  /* process */
+  .process { background: var(--pine); color: var(--pine-ink); padding: clamp(80px, 10vw, 130px) 0; }
+  .process h2 { font-size: clamp(30px, 3.6vw, 48px); max-width: 24ch; margin-bottom: 60px; }
+  .p-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(244, 241, 232, .25); border: 1px solid rgba(244, 241, 232, .25); }
+  .p-step { background: var(--pine); padding: 28px 24px 36px; }
+  .p-step .n { font-size: 13px; font-weight: 600; opacity: .65; display: block; margin-bottom: 40px; }
+  .p-step h3 { font-size: 18px; margin-bottom: 8px; }
+  .p-step p { font-size: 14px; opacity: .78; }
+
+  /* about strip */
+  .about { padding: clamp(80px, 10vw, 130px) 0; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+  .about img { width: 100%; height: 520px; object-fit: cover; object-position: 50% 60%; }
+  .about h2 { font-size: clamp(28px, 3.2vw, 42px); margin-bottom: 18px; }
+  .about p { color: var(--dim); max-width: 52ch; margin-bottom: 14px; }
+
+  /* cta */
+  .cta-band { border-top: 1px solid var(--line); padding: clamp(80px, 10vw, 130px) 0; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+  .cta-band h2 { font-size: clamp(34px, 4.6vw, 60px); max-width: 16ch; }
+  .cta-band .right { display: grid; gap: 8px; font-size: 16px; color: var(--dim); justify-items: end; }
+  .cta-band .right a { color: var(--ink); font-weight: 600; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0; font-size: 13.5px; color: var(--dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 900px) {
+    nav a.quiet { display: none; }
+    .wall-grid { gap: 14px; }
+    .cell, .cell.tall { grid-column: span 6; }
+    .cell.w6 { grid-column: span 12; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc:nth-child(3n+2), .svc:nth-child(3n) { border-left: 0; padding-left: 0; }
+    .p-grid { grid-template-columns: 1fr 1fr; }
+    .about { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<span class="concept-tag">Concept 3 · Clean Lines</span>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand" href="#">Freedom Family <b>Electric</b></a>
+    <nav>
+      <a class="quiet" href="#gallery">Work</a>
+      <a class="quiet" href="#services">Services</a>
+      <a class="quiet" href="#process">Process</a>
+      <a class="quiet" href="#about">About</a>
+      <a class="cta" href="#contact">Request a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap">
+    <div class="hero-head">
+      <h1>Rough-in to trim-out. Done clean.</h1>
+      <div class="side">
+        <p>Freedom Family Electric wires new homes across North Carolina — custom builds, spec homes, and large residences where quality shows in the details.</p>
+        <div class="btns">
+          <a class="btn btn-dark" href="#contact">Start a build quote</a>
+          <a class="btn btn-line" href="tel:+13364804744">336-480-4744</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <img class="hero-img" src="img/hero-house.jpg" alt="Custom home nearing completion with work trucks in the drive">
+  <div class="wrap hero-meta">
+    <span>Latest project — lakefront custom home, Stokes County</span>
+    <span>Full-scope electrical · rough-in through final trim</span>
+  </div>
+
+  <section class="wall wrap" id="gallery">
+    <div class="wall-head">
+      <h2>The details are the portfolio.</h2>
+      <p>Anyone can promise clean work. These are finished rooms from homes we wired — fans set level, fixtures centered, lighting planned for how the family lives.</p>
+    </div>
+    <div class="wall-grid">
+      <div class="cell tall">
+        <img src="img/interior-fan.jpg" alt="Great room fan beneath timber beams">
+        <h3>Great room fan &amp; timber trusses</h3>
+        <p>Fan set between structural timbers, cans kept out of sightlines</p>
+      </div>
+      <div class="cell tall">
+        <img src="img/trusses-portrait.jpg" alt="Great room with trusses, chandelier, and sconces">
+        <h3>Chandelier &amp; sconce layout</h3>
+        <p>Lighting drawn into the timber framing, not afterthought around it</p>
+      </div>
+      <div class="cell tall">
+        <img src="img/staircase-chandeliers.jpg" alt="View from the dining room into a kitchen with two pendant lights">
+        <h3>Kitchen pendants from the dining room</h3>
+        <p>Two pendants over the counter, framed by the dining room doorway</p>
+      </div>
+      <div class="cell full">
+        <img src="img/hero-house.jpg" alt="Wide view of custom home exterior">
+        <h3>Lakefront custom home — full-scope electrical from foundation to fixtures</h3>
+      </div>
+      <div class="cell w6">
+        <img src="img/office-pendant.jpg" alt="Home office with brass drum pendant">
+        <h3>Study &amp; office lighting</h3>
+        <p>Task light where the desk lands, ambient light for after hours</p>
+      </div>
+      <div class="cell w6">
+        <img src="img/kitchen-pendants.jpg" alt="Kitchen with island pendants">
+        <h3>Kitchen pendants &amp; cans</h3>
+        <p>Islands, counters, and under-cabinet light in one coordinated plan</p>
+      </div>
+      <div class="cell w6">
+        <img src="img/bath-vanities.jpg" alt="Primary bath with dual vanities and sconces">
+        <h3>Bath vanities &amp; mirrors</h3>
+        <p>Sconces hung right, GFCI placed where it's needed, never seen</p>
+      </div>
+      <div class="cell w6">
+        <img src="img/bar-pendants.jpg" alt="Basement bar with black cone pendants">
+        <h3>Lower-level bar pendants</h3>
+        <p>Fixture selection support — we help you pick pieces that fit the plan</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services wrap" id="services">
+    <div class="svc-grid">
+      <div class="svc">
+        <span class="kick">New builds</span>
+        <h3>New build electrical</h3>
+        <p>Complete residential wiring for custom homes, spec homes, and large residences from 3,000 to 10,000+ sq ft.</p>
+      </div>
+      <div class="svc">
+        <span class="kick">New builds</span>
+        <h3>Builder partnerships</h3>
+        <p>Dependable electrical support across multiple projects — scheduling and communication that hold.</p>
+      </div>
+      <div class="svc">
+        <span class="kick">New builds &amp; existing homes</span>
+        <h3>Lighting &amp; finish details</h3>
+        <p>Fixture placement, recessed lighting, dimmers, exterior lighting, and device trim-out.</p>
+      </div>
+      <div class="svc">
+        <span class="kick">New builds &amp; existing homes</span>
+        <h3>Panels &amp; circuits</h3>
+        <p>Panel work, dedicated circuits, garages, shops, outdoor living, and future-ready planning.</p>
+      </div>
+      <div class="svc">
+        <span class="kick">New builds &amp; existing homes</span>
+        <h3>Generators</h3>
+        <p>Standby generator and transfer switch installs for homes that can't lose power.</p>
+      </div>
+      <div class="svc">
+        <span class="kick">Existing homes</span>
+        <h3>Service calls</h3>
+        <p>Troubleshooting, repairs, and updates for existing homes — call and tell us what's going on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <h2>Four steps, and the schedule never guesses.</h2>
+      <div class="p-grid">
+        <div class="p-step">
+          <span class="n">Step 1</span>
+          <h3>Plan the scope</h3>
+          <p>Drawings, loads, fixture allowances, and decision points — settled before work begins.</p>
+        </div>
+        <div class="p-step">
+          <span class="n">Step 2</span>
+          <h3>Coordinate rough-in</h3>
+          <p>Clean routing and labeling, aware of framing, plumbing, HVAC, and inspection timing.</p>
+        </div>
+        <div class="p-step">
+          <span class="n">Step 3</span>
+          <h3>Trim with care</h3>
+          <p>Devices, lights, and panels finished to a premium custom-home standard.</p>
+        </div>
+        <div class="p-step">
+          <span class="n">Step 4</span>
+          <h3>Close the loop</h3>
+          <p>Punch items and final readiness communicated early — no surprises for the builder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about wrap" id="about">
+    <img src="img/family.jpg" alt="The Freedom Family Electric family of six in a mountain field" style="object-position: 45% 30%;">
+    <div>
+      <h2>Family-led. Faith-informed. Steady on the job site.</h2>
+      <p>We're a family of six in King, North Carolina, and we build our business the way we build our home: honest work, steady communication, and a standard we'd want in our own house.</p>
+      <p>That means respect for the builder's timeline, care for the family who will live in the home, and a job site left better than we found it.</p>
+    </div>
+  </section>
+
+  <section class="cta-band wrap" id="contact">
+    <h2>Tell us about the home you're building.</h2>
+    <div class="right">
+      <a href="tel:+13364804744">336-480-4744</a>
+      <a href="mailto:freedomfamilyelectric@gmail.com">freedomfamilyelectric@gmail.com</a>
+      <span>King, North Carolina</span>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Freedom Family Electric — King, NC</span>
+  <span>Serving communities across North Carolina · NC License # TBD</span>
+</footer>
+</body>
+</html>

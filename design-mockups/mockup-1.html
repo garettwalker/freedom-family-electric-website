@@ -1,0 +1,423 @@
+<!doctype html>
+<title>Timber &amp; Light — FFE concept</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bone: #faf7f1;
+    --ink: #23271f;
+    --pine: #2e3b31;
+    --pine-deep: #243027;
+    --clay: #a56543;
+    --mist: #6d7268;
+    --hairline: #e3ded2;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.12; text-wrap: balance; }
+  .wrap { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+  .concept-tag {
+    position: fixed; right: 16px; bottom: 16px; z-index: 50;
+    font-size: 12px; letter-spacing: .02em; color: var(--mist);
+    background: color-mix(in srgb, var(--bone) 82%, transparent);
+    border: 1px solid var(--hairline); border-radius: 999px;
+    padding: 6px 14px; pointer-events: none;
+  }
+
+  /* header */
+  header {
+    position: sticky; top: 0; z-index: 40;
+    background: color-mix(in srgb, var(--bone) 90%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .brand-lock { display: flex; align-items: center; gap: 12px; }
+  .brand-lock img { width: 46px; height: 46px; object-fit: contain; }
+  .wordmark { font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: -.01em; line-height: 1.1; }
+  .wordmark small { display: block; font-family: var(--font-body); font-size: 11.5px; font-weight: 600; letter-spacing: .05em; color: var(--mist); }
+  nav { display: flex; gap: 28px; align-items: center; font-size: 15px; font-weight: 500; }
+  nav a.quiet { color: var(--mist); }
+  nav a.quiet:hover { color: var(--ink); }
+  .cta-pill {
+    background: var(--pine); color: var(--bone);
+    padding: 10px 20px; border-radius: 999px; font-weight: 600;
+    transition: background .2s ease;
+  }
+  .cta-pill:hover { background: var(--pine-deep); }
+
+  /* hero */
+  .hero { position: relative; min-height: 640px; height: 82vh; display: flex; align-items: flex-end; }
+  .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20, 25, 20, .78) 0%, rgba(20, 25, 20, .25) 45%, rgba(20, 25, 20, .12) 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 2; color: #fdfbf6; padding: 96px 0 72px;
+    display: grid; grid-template-columns: 1.4fr .6fr; gap: 40px; align-items: center;
+  }
+  .hero-copy .hero-kicker { font-size: 15px; font-weight: 600; letter-spacing: .01em; opacity: .85; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(44px, 6.4vw, 88px); font-weight: 300; letter-spacing: -.015em; max-width: 13ch; }
+  .hero h1 em { font-style: italic; font-weight: 400; }
+  .hero-copy > p:not(.hero-kicker) { max-width: 46ch; font-size: 18px; opacity: .92; margin-top: 22px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .hero-brand { display: flex; justify-content: center; }
+  .hero-badge {
+    width: clamp(190px, 21vw, 300px); height: auto;
+    filter: drop-shadow(0 18px 44px rgba(15, 20, 15, .55));
+  }
+  .btn {
+    display: inline-block; padding: 14px 26px; border-radius: 999px;
+    font-weight: 600; font-size: 16px; transition: background .2s ease, color .2s ease;
+  }
+  .btn-light { background: #fdfbf6; color: var(--pine-deep); }
+  .btn-light:hover { background: #fff; }
+  .btn-ghost { border: 1px solid rgba(253, 251, 246, .55); color: #fdfbf6; }
+  .btn-ghost:hover { background: rgba(253, 251, 246, .12); }
+
+  /* statement */
+  .statement { padding: 120px 0 100px; }
+  .statement p {
+    font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 42px);
+    font-weight: 300; line-height: 1.3; max-width: 26ch; text-wrap: balance;
+  }
+  .statement p em { font-style: italic; color: var(--clay); }
+
+  /* editorial work blocks */
+  .work-block {
+    display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px);
+    align-items: center; padding: 56px 0;
+  }
+  .work-block.flip .work-photo { order: 2; }
+  .work-photo img { width: 100%; height: min(560px, 72vh); object-fit: cover; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; }
+  .compare figure { position: relative; }
+  .compare img { width: 100%; height: min(560px, 72vh); object-fit: cover; }
+  .compare figcaption {
+    position: absolute; top: 14px; left: 14px;
+    font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: #fdfbf6; background: rgba(20, 25, 20, .55); backdrop-filter: blur(4px);
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .work-copy .num { font-size: 14px; font-weight: 600; color: var(--clay); margin-bottom: 10px; }
+  .work-copy h2 { font-size: clamp(28px, 3vw, 40px); margin-bottom: 16px; }
+  .work-copy p { color: var(--mist); max-width: 44ch; }
+  .work-copy .link {
+    display: inline-block; margin-top: 22px; font-weight: 600; font-size: 15px;
+    border-bottom: 1.5px solid var(--pine); padding-bottom: 3px;
+  }
+
+  /* services */
+  .services { padding: 110px 0; border-top: 1px solid var(--hairline); }
+  .services-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 64px; }
+  .services-head h2 { font-size: clamp(30px, 3.4vw, 46px); }
+  .services-head p { color: var(--mist); max-width: 44ch; align-self: end; }
+  .svc-row {
+    display: grid; grid-template-columns: 220px 1fr auto; gap: 24px; align-items: baseline;
+    padding: 26px 0; border-top: 1px solid var(--hairline);
+  }
+  .svc-row:last-child { border-bottom: 1px solid var(--hairline); }
+  .svc-row h3 { font-size: 22px; }
+  .svc-row p { color: var(--mist); max-width: 60ch; }
+  .svc-row .svc-tag { font-size: 13px; font-weight: 600; color: var(--clay); white-space: nowrap; }
+
+  /* photo strip */
+  .strip { padding: 0 0 110px; }
+  .strip-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; }
+  .strip-grid figure { position: relative; }
+  .strip-grid img { width: 100%; height: 420px; object-fit: cover; }
+  .strip-grid figcaption {
+    margin-top: 10px; font-size: 13.5px; color: var(--mist);
+  }
+
+  /* process */
+  .process { background: var(--pine-deep); color: #ece7da; padding: 110px 0; }
+  .process h2 { font-size: clamp(30px, 3.4vw, 46px); max-width: 22ch; margin-bottom: 70px; }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .step h3 { font-size: 21px; font-weight: 500; margin: 0 0 10px; color: #fdfbf6; font-family: var(--font-body); }
+  .step p { font-size: 15.5px; color: #c4c0b1; }
+  .step .n {
+    font-family: var(--font-display); font-size: 15px; color: #a8ae91;
+    display: block; border-top: 1px solid rgba(236, 231, 218, .25); padding-top: 18px; margin-bottom: 14px;
+  }
+
+  /* cta band */
+  .cta-band { padding: 130px 0; text-align: center; }
+  .cta-band h2 { font-size: clamp(34px, 4.6vw, 62px); font-weight: 300; max-width: 18ch; margin: 0 auto 22px; }
+  .cta-band h2 em { font-style: italic; }
+  .cta-band p { color: var(--mist); margin-bottom: 36px; }
+  .btn-pine { background: var(--pine); color: #fdfbf6; }
+  .btn-pine:hover { background: var(--pine-deep); }
+
+  footer { background: var(--pine-deep); color: #c4c0b1; padding: 64px 0 40px; font-size: 15px; }
+  .foot-grid { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
+  .foot-brand { font-family: var(--font-display); font-size: 22px; color: #fdfbf6; }
+  .foot-col { display: grid; gap: 8px; align-content: start; }
+  .foot-col strong { color: #fdfbf6; font-weight: 600; margin-bottom: 4px; }
+  .foot-bottom { border-top: 1px solid rgba(236, 231, 218, .18); padding-top: 24px; font-size: 13.5px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 860px) {
+    nav a.quiet { display: none; }
+    .hero-inner { grid-template-columns: 1fr; gap: 0; }
+    .hero-brand { order: -1; margin-bottom: 8px; }
+    .hero-badge { width: 110px; }
+    .work-block, .services-head { grid-template-columns: 1fr; }
+    .work-block.flip .work-photo { order: 0; }
+    .strip-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .svc-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-inner { animation: rise .9s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+<span class="concept-tag">Concept 1 · Timber &amp; Light</span>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-lock" href="#">
+      <img src="img/ffe-logo.png" alt="Freedom Family Electric badge logo — Pilot Mountain with cross, est. 2021">
+      <span class="wordmark">Freedom Family Electric<small>KING, NORTH CAROLINA</small></span>
+    </a>
+    <nav>
+      <a class="quiet" href="#work">Work</a>
+      <a class="quiet" href="#services">Services</a>
+      <a class="quiet" href="#process">Process</a>
+      <a class="quiet" href="tel:+13364804744">336-480-4744</a>
+      <a class="cta-pill" href="#contact">Request a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="img/hero-house.jpg" alt="New custom home with work trucks in the driveway">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="hero-kicker">King, North Carolina — residential electrical</p>
+        <h1>Homes built to last deserve <em>wiring to match.</em></h1>
+        <p>Freedom Family Electric partners with builders and homeowners on new construction across North Carolina — rough-in to final trim-out, done clean.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#contact">Start a build quote</a>
+          <a class="btn btn-ghost" href="tel:+13364804744">Call 336-480-4744</a>
+        </div>
+      </div>
+      <div class="hero-brand">
+        <img class="hero-badge" src="img/ffe-logo.png" alt="Freedom Family Electric badge logo — Pilot Mountain with cross, est. 2021">
+      </div>
+    </div>
+  </section>
+
+  <section class="statement wrap">
+    <p>Faithful work. Clean installs. Steady communication — the three things a builder should never have to ask for <em>twice.</em></p>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="work-block">
+        <div class="work-photo">
+          <div class="compare">
+            <figure>
+              <img src="img/panel-before.jpg" alt="Main breaker panel before — cluttered and disorganized wiring">
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure>
+              <img src="img/panel-after.jpg" alt="Main breaker panel after — cleanly organized wiring with doors closed">
+              <figcaption>After</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="work-copy">
+          <p class="num">Rough-in &amp; panels</p>
+          <h2>Planned before the walls close.</h2>
+          <p>Layout, routing, boxes, and circuits — coordinated with framing, plumbing, and HVAC so inspection day is uneventful. And when we're done, the panel looks like the one on the right, not the one on the left.</p>
+          <a class="link" href="#services">See the full scope</a>
+        </div>
+      </div>
+
+      <div class="work-block flip">
+        <div class="work-photo"><img src="img/interior-chandalier.jpg" alt="Chandelier hung in a two-story foyer with arched window"></div>
+        <div class="work-copy">
+          <p class="num">Trim-out</p>
+          <h2>Finished like we live here too.</h2>
+          <p>Fixtures, fans, dimmers, and panels set with the same care we'd want in our own house — because the details are what a family sees every day.</p>
+          <a class="link" href="#services">See the full scope</a>
+        </div>
+      </div>
+
+      <div class="work-block">
+        <div class="work-photo"><img src="img/bath-vanities.jpg" alt="Primary bath with dual vanities, sconces, and chandelier"></div>
+        <div class="work-copy">
+          <p class="num">Lighting design</p>
+          <h2>Light placed with intention.</h2>
+          <p>Sconces where mirrors need them, pendants where islands want them, dimmers everywhere — planned room by room, not bolted on at the end.</p>
+          <a class="link" href="#services">See the full scope</a>
+        </div>
+      </div>
+
+      <div class="work-block flip">
+        <div class="work-photo"><img src="img/exterior-fan.jpg" alt="Outdoor living porch with tongue-and-groove ceiling and black fan"></div>
+        <div class="work-copy">
+          <p class="num">Outdoor living</p>
+          <h2>Wired for the way you gather.</h2>
+          <p>Porch fans, accent lighting, exterior lanterns, and circuits for kitchens and fireplaces — the rooms that make a house feel like home.</p>
+          <a class="link" href="#services">See the full scope</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="services-head">
+        <h2>Everything a new build needs. Nothing it doesn't.</h2>
+        <p>We stay focused on residential construction — which is why builders call us for the next project before the current one is finished.</p>
+      </div>
+      <div class="svc-row">
+        <h3>New build electrical</h3>
+        <p>Complete wiring for custom homes, spec homes, and large residences from 3,000 to 10,000+ square feet.</p>
+        <span class="svc-tag">New builds</span>
+      </div>
+      <div class="svc-row">
+        <h3>Builder partnerships</h3>
+        <p>Ongoing electrical support across multiple projects, with communication that keeps your timeline honest.</p>
+        <span class="svc-tag">New builds</span>
+      </div>
+      <div class="svc-row">
+        <h3>Lighting &amp; finish details</h3>
+        <p>Fixture placement, recessed lighting, dimmers, exterior lighting, and device trim-out.</p>
+        <span class="svc-tag">New builds &amp; existing homes</span>
+      </div>
+      <div class="svc-row">
+        <h3>Panels &amp; circuits</h3>
+        <p>Panel work, dedicated circuits, garages, shops, and future-ready planning for the home you're building.</p>
+        <span class="svc-tag">New builds &amp; existing homes</span>
+      </div>
+      <div class="svc-row">
+        <h3>Service calls</h3>
+        <p>Troubleshooting, repairs, and updates for existing homes — call and tell us what's going on.</p>
+        <span class="svc-tag">Existing homes</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap strip-grid">
+      <figure>
+        <img src="img/interior-fan-close-up.jpg" alt="Close view of a black ceiling fan between timber trusses">
+        <figcaption>Great room fan, timber truss ceiling</figcaption>
+      </figure>
+      <figure>
+        <img src="img/bar-pendants.jpg" alt="Basement bar with black cone pendants and brick backsplash">
+        <figcaption>Bar pendants, lower level</figcaption>
+      </figure>
+      <figure>
+        <img src="img/staircase-chandeliers.jpg" alt="View from the dining room into a kitchen with two pendant lights hanging over the counter">
+        <figcaption>Kitchen pendants, seen from the dining room</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <h2>How the build stays moving, from plans to punch list.</h2>
+      <div class="process-grid">
+        <div class="step">
+          <span class="n">I</span>
+          <h3>Plan the scope</h3>
+          <p>Drawings, loads, fixture allowances, and decision points — settled before the first wire is pulled.</p>
+        </div>
+        <div class="step">
+          <span class="n">II</span>
+          <h3>Coordinate rough-in</h3>
+          <p>Clean routing, practical labeling, and awareness of every other trade on the job site.</p>
+        </div>
+        <div class="step">
+          <span class="n">III</span>
+          <h3>Trim with care</h3>
+          <p>Devices, fixtures, and panels finished to the standard of a premium custom home.</p>
+        </div>
+        <div class="step">
+          <span class="n">IV</span>
+          <h3>Close the loop</h3>
+          <p>Punch items and final readiness communicated early, so nothing surprises the builder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="work-block flip">
+      <div class="work-photo"><img src="img/family.jpg" alt="The Freedom Family Electric family of six in a mountain field" style="object-position: 45% 30%;"></div>
+      <div class="work-copy">
+        <p class="num">Meet the FFE family</p>
+        <h2>A family business, built like the homes we wire.</h2>
+        <p>We're a family of six in King, North Carolina — three daughters, one son, and a belief that honest work, steady communication, and a job done right still matter. The same standard we'd want in our own house goes into yours.</p>
+        <a class="link" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band wrap" id="contact">
+    <h2>Tell us about the home <em>you're building.</em></h2>
+    <p>Build quotes, builder partnerships, and service requests — 336-480-4744 or freedomfamilyelectric@gmail.com</p>
+    <a class="btn btn-pine" href="mailto:freedomfamilyelectric@gmail.com">Start a conversation</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="img/ffe-logo.png" alt="Freedom Family Electric badge logo" style="width: 96px; height: 96px; margin-bottom: 14px;">
+        <p style="font-size: 14.5px; font-family: var(--font-body);">Residential electrical contractor<br>King, North Carolina · Est. 2021</p>
+      </div>
+      <div class="foot-col">
+        <strong>Navigate</strong>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <strong>Focus</strong>
+        <span>Custom homes</span>
+        <span>Spec homes</span>
+        <span>Large residences</span>
+        <span>Service calls</span>
+      </div>
+      <div class="foot-col">
+        <strong>Contact</strong>
+        <a href="tel:+13364804744">336-480-4744</a>
+        <a href="mailto:freedomfamilyelectric@gmail.com">freedomfamilyelectric@gmail.com</a>
+        <span>King, North Carolina</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Freedom Family Electric. All rights reserved.</span>
+      <span>Serving King, Pilot Mountain, Winston-Salem &amp; communities across North Carolina</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
