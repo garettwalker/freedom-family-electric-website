@@ -200,32 +200,30 @@
 
     /* contact */
     .contact { padding: 120px 0 130px; border-top: 1px solid var(--hairline); }
-    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
-    .contact h2 { font-size: clamp(34px, 4.4vw, 56px); font-weight: 300; margin-bottom: 18px; }
-    .contact h2 em { font-style: italic; }
-    .contact-copy > p { color: var(--mist); max-width: 42ch; margin-bottom: 30px; }
-    .contact-methods { display: grid; gap: 10px; }
-    .contact-methods a { font-weight: 600; border-bottom: 1.5px solid var(--pine); align-self: start; padding-bottom: 2px; width: fit-content; }
-    .contact-methods a:hover { color: var(--pine); }
-    .contact-methods span { color: var(--mist); font-size: 15px; }
+    .contact-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .contact-head h2 { font-size: clamp(34px, 4.6vw, 62px); font-weight: 300; margin-bottom: 20px; }
+    .contact-head h2 em { font-style: italic; }
+    .contact-head p { color: var(--mist); }
+    .contact-head p a { font-weight: 600; color: var(--ink); border-bottom: 1.5px solid var(--pine); padding-bottom: 1px; }
+    .contact-head p a:hover { color: var(--pine); }
     .contact-form {
-      background: #fff; border: 1px solid var(--hairline);
-      padding: clamp(28px, 4vw, 44px);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px;
+      max-width: 680px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 26px 28px;
     }
-    .contact-form label { display: grid; gap: 7px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+    .contact-form label { display: grid; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--mist); }
     .contact-form label.full { grid-column: 1 / -1; }
     .contact-form input, .contact-form select, .contact-form textarea {
-      font-family: var(--font-body); font-size: 16px; color: var(--ink);
-      background: var(--bone); border: 1px solid var(--hairline);
-      padding: 12px 14px; width: 100%;
+      font-family: var(--font-body); font-size: 17px; color: var(--ink);
+      background: transparent; border: 0; border-bottom: 1px solid #d3ccbc;
+      border-radius: 0; padding: 10px 2px; width: 100%;
     }
-    .contact-form textarea { resize: vertical; }
+    .contact-form textarea { resize: vertical; line-height: 1.6; }
     .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
-      outline: none; border-color: var(--pine); background: #fff;
+      outline: none; border-bottom-color: var(--pine);
     }
-    .contact-form .btn { grid-column: 1 / -1; justify-self: start; }
-    .contact-form .form-note { grid-column: 1 / -1; font-size: 14px; color: var(--mist); margin-top: -8px; }
+    .contact-form ::placeholder { color: #b3ae9f; }
+    .contact-form .btn { grid-column: 1 / -1; justify-self: center; margin-top: 10px; }
+    .contact-form .form-note { grid-column: 1 / -1; text-align: center; font-size: 14px; color: var(--mist); margin-top: -8px; }
     .btn-pine { background: var(--pine); color: #fdfbf6; }
     .btn-pine:hover { background: var(--pine-deep); }
 
@@ -245,7 +243,7 @@
       .hero-inner { grid-template-columns: 1fr; gap: 0; padding: 56px 0 64px; }
       .hero-brand { order: -1; margin-bottom: 4px; }
       .hero-badge { width: 110px; }
-      .work-block, .services-head, .contact-grid { grid-template-columns: 1fr; }
+      .work-block, .services-head { grid-template-columns: 1fr; }
       .work-photo img { height: auto; aspect-ratio: 4 / 3; }
       .work-block.flip .work-photo { order: 0; }
       .strip-grid { grid-template-columns: 1fr; }
@@ -451,16 +449,10 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="wrap contact-grid">
-        <div class="contact-copy">
-          <p class="num" style="font-size: 14px; font-weight: 600; color: var(--clay); margin-bottom: 10px;">Request a quote</p>
+      <div class="wrap">
+        <div class="contact-head">
           <h2>Tell us about the home <em>you're building.</em></h2>
-          <p>Use this form for new build electrical quotes, builder partnerships, or residential service requests. We will follow up as soon as possible after reviewing it.</p>
-          <div class="contact-methods">
-            <a href="tel:+13364804744">336-480-4744</a>
-            <a href="mailto:freedomfamilyelectric@gmail.com">freedomfamilyelectric@gmail.com</a>
-            <span>King, North Carolina</span>
-          </div>
+          <p>Build quotes, builder partnerships, and service requests — <a href="tel:+13364804744">336-480-4744</a> or <a href="mailto:freedomfamilyelectric@gmail.com">freedomfamilyelectric@gmail.com</a></p>
         </div>
 
         <form class="contact-form" action="https://formspree.io/f/mbdebqgk" method="post">
