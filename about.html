@@ -5,128 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Freedom Family Electric | King, NC Electrician</title>
   <meta name="description" content="Meet the family behind Freedom Family Electric, a King, NC electrical contractor serving builders and homeowners with steady, honest residential electrical work.">
-  <meta name="theme-color" content="#344236">
+  <meta name="theme-color" content="#243027">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+  <link rel="preload" as="image" href="assets/img/ffe-family.jpg">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE2LG0CRR3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WE2LG0CRR3');
+  </script>
+
+  <style>
+    :root {
+      --bone: #faf7f1;
+      --ink: #23271f;
+      --pine: #2e3b31;
+      --pine-deep: #243027;
+      --clay: #a56543;
+      --mist: #6d7268;
+      --hairline: #e3ded2;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.12; text-wrap: balance; }
+    .wrap { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+    .skip-link {
+      position: absolute; left: 16px; top: -48px; z-index: 100;
+      background: var(--pine-deep); color: var(--bone);
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 12px; }
+
+    /* header */
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: color-mix(in srgb, var(--bone) 90%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .header-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0;
+    }
+    .brand-lock { display: flex; align-items: center; gap: 12px; }
+    .brand-lock img { width: 46px; height: 46px; object-fit: contain; }
+    .wordmark { font-family: var(--font-display); font-size: 21px; font-weight: 500; letter-spacing: -.01em; line-height: 1.1; }
+    .wordmark small { display: block; font-family: var(--font-body); font-size: 11.5px; font-weight: 600; letter-spacing: .05em; color: var(--mist); }
+    nav { display: flex; gap: 28px; align-items: center; font-size: 15px; font-weight: 500; }
+    nav a.quiet { color: var(--mist); }
+    nav a.quiet:hover { color: var(--ink); }
+    nav a[aria-current="page"] { color: var(--ink); }
+    .cta-pill {
+      background: var(--pine); color: var(--bone);
+      padding: 10px 20px; border-radius: 999px; font-weight: 600;
+      transition: background .2s ease;
+    }
+    .cta-pill:hover { background: var(--pine-deep); }
+
+    /* statement */
+    .statement { padding: 90px 0 80px; }
+    .statement .num { font-size: 14px; font-weight: 600; color: var(--clay); margin-bottom: 10px; }
+    .statement h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 300; max-width: 20ch; margin-bottom: 22px; }
+    .statement h1 em { font-style: italic; font-weight: 400; }
+    .statement .lede { color: var(--mist); max-width: 52ch; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 14px 26px; border-radius: 999px;
+      font-weight: 600; font-size: 16px; transition: background .2s ease, color .2s ease;
+    }
+    .btn-pine { background: var(--pine); color: #fdfbf6; }
+    .btn-pine:hover { background: var(--pine-deep); }
+    .btn-ghost { border: 1px solid var(--hairline); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--pine); color: var(--pine); }
+
+    /* family photo band */
+    .family-band { padding: 0 0 90px; }
+    .family-band figure { position: relative; }
+    .family-band img { width: 100%; height: min(620px, 78vh); object-fit: cover; object-position: 45% 30%; }
+    .family-band figcaption {
+      margin-top: 12px; font-size: 13.5px; color: var(--mist);
+    }
+
+    /* story */
+    .story { padding: 0 0 100px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+    .story h2 { font-size: clamp(28px, 3vw, 40px); margin-bottom: 16px; }
+    .story p { color: var(--mist); max-width: 46ch; margin-bottom: 16px; }
+
+    /* values band */
+    .values { background: var(--pine-deep); color: #ece7da; padding: 100px 0; }
+    .values h2 { font-size: clamp(28px, 3.2vw, 42px); max-width: 24ch; margin-bottom: 64px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step h3 { font-size: 21px; font-weight: 500; margin: 0 0 10px; color: #fdfbf6; font-family: var(--font-body); }
+    .step p { font-size: 15.5px; color: #c4c0b1; }
+    .step .n {
+      font-family: var(--font-display); font-size: 15px; color: #a8ae91;
+      display: block; border-top: 1px solid rgba(236, 231, 218, .25); padding-top: 18px; margin-bottom: 14px;
+    }
+
+    /* cta */
+    .cta-band { padding: 120px 0 130px; text-align: center; }
+    .cta-band h2 { font-size: clamp(32px, 4.4vw, 56px); font-weight: 300; max-width: 20ch; margin: 0 auto 22px; }
+    .cta-band h2 em { font-style: italic; }
+    .cta-band p { color: var(--mist); margin-bottom: 36px; }
+    .cta-band .hero-actions { justify-content: center; }
+
+    footer { background: var(--pine-deep); color: #c4c0b1; padding: 64px 0 40px; font-size: 15px; }
+    .foot-grid { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
+    .foot-brand { font-family: var(--font-display); font-size: 22px; color: #fdfbf6; }
+    .foot-brand img { width: 96px; height: 96px; margin-bottom: 14px; }
+    .foot-brand p { font-size: 14.5px; font-family: var(--font-body); }
+    .foot-col { display: grid; gap: 8px; align-content: start; }
+    .foot-col strong { color: #fdfbf6; font-weight: 600; margin-bottom: 4px; }
+    .foot-col a:hover { color: #fdfbf6; }
+    .foot-bottom { border-top: 1px solid rgba(236, 231, 218, .18); padding-top: 24px; font-size: 13.5px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 860px) {
+      nav a.quiet { display: none; }
+      .statement { padding: 64px 0 60px; }
+      .family-band img { height: auto; aspect-ratio: 4 / 3; }
+      .family-band, .story { padding-bottom: 70px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; gap: 32px; }
+      .values, .cta-band { padding-top: 80px; padding-bottom: 90px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .statement { animation: rise .9s ease both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" data-header>
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Freedom Family Electric home">
-        <span class="brand-text">Freedom Family Electric</span>
+  <header>
+    <div class="wrap header-row">
+      <a class="brand-lock" href="index.html" aria-label="Freedom Family Electric home">
+        <img src="assets/img/ffe-logo.png" alt="Freedom Family Electric badge logo — Pilot Mountain with cross, est. 2021">
+        <span class="wordmark">Freedom Family Electric<small>KING, NORTH CAROLINA</small></span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-        <span class="sr-only">Open menu</span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#process">Process</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a class="nav-cta" href="index.html#contact">Request Quote</a>
+      <nav aria-label="Main navigation">
+        <a class="quiet" href="index.html#work">Work</a>
+        <a class="quiet" href="index.html#services">Services</a>
+        <a class="quiet" href="index.html#process">Process</a>
+        <a class="quiet" href="tel:+13364804744">336-480-4744</a>
+        <a class="cta-pill" href="index.html#contact">Request a quote</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero section-pad">
-      <div class="container two-col align-center">
-        <div class="section-heading reveal">
-          <p class="eyebrow">About Freedom Family Electric</p>
-          <h1>A family-led electrical business serving families who are building home.</h1>
-          <p>Freedom Family Electric is a residential electrical contractor based in King, North Carolina. This mockup keeps the owner story simple, personal, and trust-building while leaving room to add the real family photo, real license details, and real origin story.</p>
-          <a class="button primary" href="index.html#contact">Start a Conversation</a>
-        </div>
-        <div class="about-photo reveal delay-1">
-          <img src="assets/img/family-photo-placeholder.svg" alt="Family photo placeholder for Freedom Family Electric owner family" width="720" height="560">
-        </div>
+    <section class="statement wrap">
+      <p class="num">Meet the FFE family</p>
+      <h1>A family business, built like the homes we <em>wire.</em></h1>
+      <p class="lede">Freedom Family Electric is a family-owned residential electrical contractor based in King, North Carolina — wiring custom homes, spec homes, and large residences across the Foothills and Triad since 2021.</p>
+      <div class="hero-actions">
+        <a class="btn btn-pine" href="index.html#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="tel:+13364804744">Call 336-480-4744</a>
       </div>
     </section>
 
-    <section class="section-pad muted">
-      <div class="container two-col">
-        <div class="section-heading reveal">
-          <p class="eyebrow">The story placeholder</p>
+    <section class="family-band wrap">
+      <figure>
+        <img src="assets/img/ffe-family.jpg" alt="The Freedom Family Electric family of six in a mountain field">
+        <figcaption>The FFE family — three daughters, one son, and two parents who still answer their own phone.</figcaption>
+      </figure>
+    </section>
+
+    <section class="story wrap">
+      <div class="story-grid">
+        <div>
           <h2>Built on faith, family, and work that holds up.</h2>
+          <p>We're a family of six in King, North Carolina. We started Freedom Family Electric on a belief that honest work, steady communication, and a job done right still matter — the same values we live by at home shape how we treat builders, homeowners, and job sites.</p>
         </div>
-        <div class="body-copy reveal delay-1">
-          <p>Replace this section with the owner’s actual story once he approves the brand direction. A strong version should explain why he started the business, what kind of work he is most proud of, and how his faith shapes the way he treats builders, homeowners, and job sites.</p>
-          <p>The tone should be warm, humble, and specific. The goal is to help a homeowner or builder feel comfortable trusting Freedom Family Electric with a major residential project.</p>
+        <div>
+          <p>That belief shapes every home we wire: with care for the family who will live there, respect for the builder's timeline, and a standard of work we would want in our own house. Faith shows up in our work through service — not slogans.</p>
+          <p>When you call, you talk to the people doing the work. When we give you a timeline, we keep it. And when we close up a wall, everything behind it is something we'd be glad to live with ourselves.</p>
         </div>
       </div>
     </section>
 
-    <section class="section-pad">
-      <div class="container values-list">
-        <article class="process-step reveal">
-          <span>01</span>
-          <h3>Serve first</h3>
-          <p>We want the work to be useful, safe, and respectful of the family who will live in the home.</p>
-        </article>
-        <article class="process-step reveal delay-1">
-          <span>02</span>
-          <h3>Work clean</h3>
-          <p>Clean installs, clear communication, and careful finish work are part of the standard.</p>
-        </article>
-        <article class="process-step reveal delay-2">
-          <span>03</span>
-          <h3>Stay steady</h3>
-          <p>Builders need partners who keep the project moving and communicate before small issues become bigger problems.</p>
-        </article>
+    <section class="values">
+      <div class="wrap">
+        <h2>The standard we'd want in our own house.</h2>
+        <div class="values-grid">
+          <div class="step">
+            <span class="n">I</span>
+            <h3>Serve first</h3>
+            <p>We want the work to be useful, safe, and respectful of the family who will live in the home.</p>
+          </div>
+          <div class="step">
+            <span class="n">II</span>
+            <h3>Work clean</h3>
+            <p>Clean installs, clear communication, and careful finish work are part of the standard.</p>
+          </div>
+          <div class="step">
+            <span class="n">III</span>
+            <h3>Stay steady</h3>
+            <p>Builders need partners who keep the project moving and communicate before small issues become bigger problems.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section-pad contact-cta">
-      <div class="container cta-box reveal">
-        <p class="eyebrow">Ready to talk?</p>
-        <h2>Bring Freedom Family Electric into your next residential build.</h2>
-        <div class="hero-actions centered-actions">
-          <a class="button primary" href="index.html#contact">Request a Quote</a>
-          <a class="button secondary" href="tel:+13365550198">Call 336-555-0198</a>
-        </div>
+    <section class="cta-band wrap">
+      <h2>Bring Freedom Family Electric into your next <em>residential build.</em></h2>
+      <p>Build quotes, builder partnerships, and service requests — 336-480-4744 or freedomfamilyelectric@gmail.com</p>
+      <div class="hero-actions">
+        <a class="btn btn-pine" href="index.html#contact">Request a quote</a>
+        <a class="btn btn-ghost" href="tel:+13364804744">Call 336-480-4744</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="assets/img/FFE-Logo-1.png" alt="Freedom Family Electric logo" width="180" height="180">
-        <p>Residential electrical contractor based in King, NC.</p>
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/img/ffe-logo.png" alt="Freedom Family Electric badge logo">
+          <p style="font-size: 14.5px; font-family: var(--font-body);">Residential electrical contractor<br>King, North Carolina · Est. 2021</p>
+        </div>
+        <div class="foot-col">
+          <strong>Navigate</strong>
+          <a href="index.html">Home</a>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#services">Services</a>
+          <a href="about.html" aria-current="page">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <strong>Focus</strong>
+          <span>Custom homes</span>
+          <span>Spec homes</span>
+          <span>Large residences</span>
+          <span>Service calls</span>
+        </div>
+        <div class="foot-col">
+          <strong>Contact</strong>
+          <a href="tel:+13364804744">336-480-4744</a>
+          <a href="mailto:freedomfamilyelectric@gmail.com">freedomfamilyelectric@gmail.com</a>
+          <span>NC License # 34901</span>
+        </div>
       </div>
-      <div>
-        <strong>Navigate</strong>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#services">Services</a>
-        <a href="about.html">About</a>
-        <a href="index.html#contact">Contact</a>
+      <div class="foot-bottom">
+        <span>&copy; <span data-year>2026</span> Freedom Family Electric. All rights reserved.</span>
+        <span>Serving King, Pilot Mountain, Winston-Salem &amp; communities across North Carolina</span>
       </div>
-      <div>
-        <strong>Service focus</strong>
-        <span>New builds</span>
-        <span>Custom homes</span>
-        <span>Spec homes</span>
-        <span>Service calls</span>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <a href="tel:+13365550198">336-555-0198</a>
-        <a href="mailto:hello@freedomfamilyelectric.com">hello@freedomfamilyelectric.com</a>
-        <span>NC License # TBD</span>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>&copy; <span data-year></span> Freedom Family Electric. All rights reserved.</span>
-      <span>Built for brand concept review.</span>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    document.querySelector('[data-year]').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
